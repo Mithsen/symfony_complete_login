@@ -11,8 +11,8 @@ class LogoutController extends AbstractController
     /**
      * @Route("/logout", name="logout")
      */
-    public function logout() {
-
+    public function logout()
+    {
         $this->get('session')->remove('user');
         return $this->redirectToRoute('login' );
     }

@@ -19,12 +19,10 @@ class DataFixtures extends Fixture
         $this->passwordEncoder = $passwordEncoder;
         $this->entityManager = $entityManager;
     }
+
     public function load(ObjectManager $manager)
     {
-        // $product = new Product();
-        // $manager->persist($product);
-        // create 20 products! Bam!
-
+        //create dummy data and insert to database
         $connection = $this->entityManager->getConnection();
         $platform   = $connection->getDatabasePlatform();
 
@@ -33,7 +31,7 @@ class DataFixtures extends Fixture
 
         $first_names = array("admin","Johon","Krist","Malith","Namal","Dinidu");
         $last_names = array("password","Doi","Paris","Senavira","Kumara","Senarathna");
-        $addresses = array("a street, US","b street, AUS","c street, Sri Lanka","d street, India","e street, Sri Lanka" );
+        $addresses = array("2141 Still street, Gibsonburg, US","2793 Pooh Bear Lane, AUS","9 Arron Smith Drive street, Sri Lanka","4629 Canis Heights Drive, India","3971 Augusta Park street, Sri Lanka" );
 
         for ($i = 0; $i < 5; $i++) {
 
@@ -54,8 +52,6 @@ class DataFixtures extends Fixture
             $user->setEmpId($i+1);
             $manager->persist($user);
         }
-
         $manager->flush();
-
     }
 }

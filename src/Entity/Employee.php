@@ -18,7 +18,6 @@ class Employee
 
     /**
      * @ORM\Column(type="string", length=255)
-     * @ORM\OneToMany(targetEntity="App\Entity\user", mappedBy="employee")
      */
     private $first_name;
 

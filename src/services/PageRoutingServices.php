@@ -20,9 +20,10 @@ class PageRoutingServices
         $this->entityManager = $entityManager;
     }
 
-    public function getEmp($user) {
-
-        if($user==null) {
+    public function getEmp($user)
+    {
+        if($user==null)
+        {
             //return $this->redirectToRoute('login' );
             return null;
         }
@@ -30,8 +31,8 @@ class PageRoutingServices
         return $this->getEmpCredentials($user->getEmpId());
     }
 
-    public function getEmpCredentials($id) {
-
+    public function getEmpCredentials($id)
+    {
         $repository = $this->entityManager->getRepository(Employee::class);
         return $repository->findOneBy(['id' => $id]);
     }

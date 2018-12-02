@@ -1,0 +1,12 @@
+//install composer https://getcomposer.org/ 
+// run these command in project terminal
+
+composer require symfony/web-server-bundle --dev
+composer require symfony/maker-bundle --dev
+composer require symfony/orm-pack
+composer require annotations
+composer require symfony/form
+composer require twig
+composer require symfony/security-bundle
+composer require doctrine/doctrine-fixtures-bundle --dev
+composer require asset

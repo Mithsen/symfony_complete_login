@@ -23,7 +23,8 @@ class LoginServices
         $this->entityManager = $entityManager;
     }
 
-    public function getAuthenticatordMsg($form,$request) {
+    public function getAuthenticatordMsg($form,$request)
+    {
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -36,34 +37,31 @@ class LoginServices
             }
             else {
 
-                if ($this->checkPassword($user,$form->getData()->getPassword())) {
+                if ($this->checkPassword($user,$form->getData()->getPassword()))
+                {
 
                     $request->getSession()->set('user', $user);
                     return "success";
 
                 }
-                else {
-
-                    return "Username or Password not valid";
-                }
+                return "Username or Password not valid";
             }
         }
         return '';
     }
 
-    public function getCredentials($formCredentials) {
-
+    public function getCredentials($formCredentials)
+    {
         $repository = $this->entityManager->getRepository(User::class);
         return $repository->findOneBy(['email' => $formCredentials->getEmail()]);
-
     }
 
-    public function checkPassword($user,$form_pw) {
-
-        if($this->passwordEncoder->isPasswordValid($user,$form_pw)) {
+    public function checkPassword($user,$form_pw)
+    {
+        if($this->passwordEncoder->isPasswordValid($user,$form_pw))
+        {
             return true;
         }
-
         return false;
     }
 
