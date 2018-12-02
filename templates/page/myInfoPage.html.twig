@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}ORANGE HRM{% endblock %}
+
+{% block nav %} {% include 'includes/pageNav.html.twig'%} {% endblock %}
+
+{% block body %}
+
+<div id="pg1" class="w3-container emp">
+    <div class="col-sm-10 offset-sm-3 display-4">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td> {{ firstname }} {{ lastname }}</td>
+        </tr>
+        <tr>
+            <td>Address: </td>
+            <td> {{ address }}</td>
+        </tr>
+    </table>
+    </div>
+</div>
+
+{% endblock %}
+
+
+
+
